@@ -1,19 +1,27 @@
-import Image from "next/image";
-import Link from "next/link";
+"use client";
+import { useEffect, useState } from 'react';
+import Login from './CreateUsers/Login/page';
 
 export default function Home() {
+  const [redirect, setRedirect] = useState(false);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setRedirect(true);
+    }, 3000);
+
+    return () => clearTimeout(timeout);
+  }, []); 
+
+  if (redirect) {
+    return <Login />
+  }
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-blue-600">
-      <h1 className="text-4xl sm:text-6xl lg:text-9xl text-gray-400">
-        <strong className="text-gray-100">eShuri</strong> web
+    <main className="flex min-h-screen flex-col bg-blue-600 items-center justify-center p-2 sm:p-5">
+      <h1 className="text-9xl text-slate-400">
+        <strong className="text-slate-100"> eShuri </strong>Web
       </h1>
-      <div className="text-center">
-        <Link href="./loginUser">
-          <button className="btn btn-md mt-10 bg-gray-800 text-gray-50 rounded-full px-6 py-3">
-            Responsive
-          </button>
-        </Link>
-      </div>
     </main>
   );
 }
