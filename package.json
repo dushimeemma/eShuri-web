@@ -1,6 +1,0 @@
-{
-  "devDependencies": {
-    "daisyui": "^4.6.2",
-    "prisma": "^5.9.1"
-  }
-}
