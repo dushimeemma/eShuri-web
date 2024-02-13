@@ -1,0 +1,22 @@
+.container {
+  @apply flex min-h-screen w-screen items-center justify-center bg-primary;
+}
+.wrapper {
+  @apply flex flex-col p-12 bg-white rounded-lg w-[30vw] min-h-[60vh];
+}
+
+.title {
+  @apply ml-4 font-extrabold text-2xl;
+}
+
+.input {
+  @apply mx-4 my-3;
+}
+
+.button {
+  @apply mx-4 w-20 my-3;
+}
+
+.checkbox {
+  @apply mx-4 my-3;
+}

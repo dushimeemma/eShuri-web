@@ -18,7 +18,7 @@ export async function POST(request: NextRequest) {
   // find user and compare password
   const { email, password } = userData;
 
-  const user = await prisma.user.findUnique({ where: { email: email } });
+  const user = await prisma.user.findFirst({ where: { email: email } });
   const validPassword = compareSync(password, `${user!.password}`);
 
   if (!user || !validPassword) {
@@ -36,7 +36,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({
       status: 'ok',
       message: 'User logged in successfully',
-      data: token,
+      data: { token, user },
     });
   } catch (error) {
     return NextResponse.json({ status: 'failed', error }, { status: 400 });

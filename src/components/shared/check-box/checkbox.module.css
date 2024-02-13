@@ -1,0 +1,9 @@
+.container {
+  @apply flex items-center mb-4;
+}
+.input {
+  @apply w-4 h-4 text-primary bg-inputBorder border-inputBorder rounded;
+}
+.label {
+  @apply ms-2 text-sm font-medium text-title;
+}
