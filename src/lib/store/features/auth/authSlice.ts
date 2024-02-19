@@ -48,6 +48,7 @@ const authSlice = createSlice({
       .addCase(login.fulfilled, (state, action) => {
         state.token = action.payload.data.token;
         state.user = action.payload.data.user;
+        state.isAuth = true;
         state.loading = false;
       });
   },
@@ -56,7 +57,6 @@ const authSlice = createSlice({
 export const login = createAsyncThunk(
   'auth/login',
   async (payload: { email: string; password: string }) => {
-    console.log({ payload });
     try {
       const response = await axios.post('/api/auth/login', payload);
       return response.data;

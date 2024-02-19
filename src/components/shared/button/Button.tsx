@@ -16,7 +16,7 @@ function Button({ label, onClick, classes }: Props) {
 export default Button;
 
 interface Props {
-  label?: string;
+  label?: string | JSX.Element;
   onClick?: MouseEventHandler<HTMLButtonElement>;
   classes?: string;
 }
